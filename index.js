@@ -1,4 +1,5 @@
-const { TouchBar, TouchBarButton } = require('electron');
+const { TouchBar } = require('electron');
+const { TouchBarButton } = TouchBar;
 
 if (TouchBar) {
 	const buttons = [new TouchBarButton({
