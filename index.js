@@ -1,15 +1,13 @@
-const { TouchBar } = require('electron');
+const { TouchBar } = require('electron').remote;
 const { TouchBarButton } = TouchBar;
 
-if (TouchBar) {
-	const buttons = [new TouchBarButton({
-		label: `Click me`.toUpperCase(),
-		click: () => {
-			console.log('clicked')
-		}
-	})]
-
-	exports.onWindow = (win) => {
-		win.setTouchBar(new TouchBar(buttons));
+const button = new TouchBarButton({
+	label: `🦄 Click me`,
+	click: () => {
+		console.log('TouchBarButton was clicked');
 	}
+});
+
+exports.onWindow = (win) => {
+	win.setTouchBar(new TouchBar([button]));
 }
